@@ -462,11 +462,11 @@ export default {
     ChangeTimeDurationDropdown,
     VxTimeline
   },
-  beforeCreate() {
+  beforeCreate () {
     if (!this.$store.state.auth.isUserLoggedIn()) this.$router.push('/login')
     //  User Reward Card
   },
-  created() {
+  created () {
     // if (!this.$store.state.auth.isUserLoggedIn()) this.$router.push({ path: '/login' })
     //  User Reward Card
     this.$http
