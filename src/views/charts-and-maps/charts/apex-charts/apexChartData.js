@@ -46,7 +46,7 @@ export default {
     series: [
       {
         name: 'Desktops',
-        data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+        data: [500000, 540000, 520000, 530000, 600000]
       }
     ],
     chartOptions: {
@@ -64,8 +64,9 @@ export default {
         curve: 'straight'
       },
       title: {
-        text: 'Product Trends by Month',
-        align: 'left'
+        text: 'Plan Trends by Month',
+        align: 'center',
+        fontSize : '28px'
       },
       grid: {
         row: {
@@ -74,7 +75,7 @@ export default {
         }
       },
       xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May']
       }
     }
   },
@@ -1313,9 +1314,10 @@ export default {
   }
 </script>`,
   pieChart: {
-    series: [44, 55, 13, 43],
+    series: [30, 20, 30, 20],
     chartOptions: {
-      labels: ['Team A', 'Team B', 'Team C', 'Team D'],
+      
+      labels: ['AI', '3*9', '5*4', '8*2'],
       colors: themeColors,
       responsive: [
         {
@@ -1325,11 +1327,24 @@ export default {
               width: 200
             },
             legend: {
-              position: 'bottom'
-            }
+              show: false
+            } 
           }
         }
-      ]
+      ],
+      legend: {
+        position: 'bottom',
+        horizontalAlign: 'center',
+        verticalAlign: 'middle',
+        floating: false,
+        fontSize: '20px',
+        offsetX: -30,
+        offsetY: 10
+      },
+      datalabels: {
+        colors: 'black',
+        useSeriesColors: true
+      }
     }
   },
   pieChartCode:
@@ -1363,8 +1378,26 @@ export default {
   }
 </script>`,
   donutChart: {
-    series: [44, 55, 41, 17],
+    series: [200000, 100000, 200000, 100000],
     chartOptions: {
+      plotOptions: {
+        pie: {
+          donut: {
+            labels: {
+              show: true,
+              total: {
+                style : {
+                  fontSize : '25px'
+                },
+                show: true,
+                label : 'Total Plan',
+                formatter: () => '$600,000'
+              }
+            }
+          }
+        }
+      },
+      labels: ['AI', '3*9', '5*4', '8*2'],
       colors: themeColors,
       responsive: [
         {
@@ -1376,9 +1409,24 @@ export default {
             legend: {
               position: 'bottom'
             }
+            
           }
         }
-      ]
+      ],
+      legend: {
+        position: 'bottom',
+        horizontalAlign: 'center',
+        verticalAlign: 'middle',
+        floating: false,
+        fontSize: '20px',
+        offsetX: -30,
+        offsetY: 10
+      },
+      
+      datalabels: {
+        colors: 'black',
+        useSeriesColors: true
+      }
     }
   },
   donutChartCode:
