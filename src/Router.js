@@ -141,7 +141,7 @@ const router = new Router({
         {
           path: '/planing',
           name: 'planing',
-          component: () => import('./views/Planing.vue'),
+          component: () => import('./views/plan/Planing.vue'),
           meta: {
             rule: 'admin'
           }

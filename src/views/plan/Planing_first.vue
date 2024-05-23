@@ -2,107 +2,50 @@
   <div id="dashboard-analytics">
     <div class="vx-row"> 
       <!-- CARD 1: CONGRATS -->
-      <div id="7*9_Card" class="vx-col w-full lg:w-full mb-base ">
-        <vx-card slot="no-body" class="text-center  ">  
-          <h1 class="mb-1 " style="color: #2645ff; font-weight: 900; font-size: 45px; font-family: Sans-Serif; letter-spacing: 3px; transform: scale(0.8, 1.0);">
+      <div id="7*9_Card" class="vx-col w-full lg:w-3/8 mb-base">
+        
+        <vx-card slot="no-body" class="text-center  greet-user">  
+          <h1 class="mb-6">
             7*9 Firm
           </h1>
-          <div class="vx-row chartstyle" style=" align-items: center;">
-            <div class="vx-col subchartstyle xs:w-full lg:w-1/3 xl:w-1/3">
-              <vue-apex-charts type="donut" height="350" :options="apexChatData.donutChart.chartOptions" :series="apexChatData.donutChart.series"></vue-apex-charts>
+          <!-- <p class="xl:w-3/4 lg:w-4/5 md:w-2/3 w-4/5 mx-auto">
+            Total Developers :300 
+          </p>
+          <p class="xl:w-3/4 lg:w-4/5 md:w-2/3 w-4/5 mx-auto">
+            Total Plan :$500,000 
+          </p> -->
+          <!-- <div class="vx-col  w-full mb-base"> -->
+          <!-- <vx-card style="background-color: #47CE84; border: none"> -->
+            <div>
+              <vue-apex-charts type="pie" height="350" :options="apexChatData.pieChart.chartOptions" :series="apexChatData.pieChart.series"></vue-apex-charts>
               <template slot="codeContainer">
-                {{ apexChatData.donutChartCode }}
+                {{ apexChatData.pieChartCode }}
               </template>
             </div>
-            <div class="vx-col  xs:w-full lg:w-2/3 xl:w-2/3">
-              <vue-apex-charts type="line" height="350" :options="apexChatData.lineChartSimple.chartOptions" :series="apexChatData.lineChartSimple.series"></vue-apex-charts>
-              <template slot="codeContainer">
-                {{ apexChatData.lineChartSimpleCode }}
-              </template>
-            </div>
-          </div> 
+          <!-- </vx-card> -->
+        <!-- </div> -->
+
+          <!-- <div
+            class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col lg:mb-0 md:mb-base sm:mb-0 mb-base"
+          > -->
+            <!-- <change-time-duration-dropdown class="self-end" /> -->
+
+            <!-- <vue-apex-charts type="pie" height="350" :options="pieChart.chartOptions" :series="pieChart.series"></vue-apex-charts> -->
+          <!-- </div> -->
+          <!-- <vue-apex-charts type="pie" width="380" :options="chartOptions" :series="series"></vue-apex-charts> -->
+
         </vx-card>
       </div>
-      <div id="other_cards" class="vx-col w-full lg:w-full mb-base">
-        <div id = "54AI_Card" class="vx-row">
+      <div id="other_cards" class="vx-col w-full lg:w-5/8 mb-base">
+        <div id = "54AI_Card" class="vx-row" >
           <div class="vx-col w-full md:w-1/2 mb-base rounded-10 ">
             <vx-card class="rounded-10" >
               <div class="">
+
                 <p class="text-warning  mb-6  text-3xl font-bold text-center font-sans ">
                    5*4 company
                 </p>
-              </div>
-              <div
-                class="vx-row flex-col-reverse md:flex-col-reverse sm:flex-row lg:flex-row"
-              >
-                <!-- LEFT COL -->
-                <div id="100k"
-                  class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between bg-cyan"
-                  v-if="salesBarSession.analyticsData"
-                >
-                  <div id="+5.2%" align="center">
-                    <h2 class="mb-1 font-bold">
-                      {{ salesBarSession.analyticsData.session | k_formatter }}
-                    </h2>
-                    <!-- Previous Data Comparison -->
-                    <p class="mt-2 text-xl font-medium">
-                      <span
-                        :class="
-                          salesBarSession.analyticsData.comparison.result >= 0
-                            ? 'text-success'
-                            : 'text-danger'
-                        "
-                      >
-                        <span style="font-size: 12px;" v-if="salesBarSession.analyticsData.comparison.result > 0"
-                          >+</span
-                        >
-                        <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.result }}</span>
-                      </span>
-                      <span style="font-size: 12px;"> % vs </span>
-                      <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.str }}</span>
-                    </p>
-                  </div>
-                  <vs-button
-                    icon-pack="feather"
-                    icon="icon-chevrons-right"
-                    icon-after
-                    class="shadow-md w-full lg:mt-0 mt-4 p-2"
-                    >More</vs-button
-                  >
-                </div>
 
-                <!-- RIGHT COL -->
-                <div
-                  class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col lg:mb-0 md:mb-base sm:mb-0 mb-base"
-                >
-                  <vue-apex-charts
-                    type="bar"
-                    height="150"
-                    :options="analyticsData.salesBar.chartOptions"
-                    :series="salesBarSession.series"
-                    v-if="salesBarSession.series"
-                  />
-                </div>
-              </div>
-              <vs-divider class="my-6"></vs-divider>
-              <div class="vx-row">
-                <div class="vx-col w-1/2 mb-3">
-                  <p>Goal: $100000</p>
-                  <vs-progress class="block mt-1" :percent="50" color="primary"></vs-progress>
-                </div>
-                <div class="vx-col w-1/2 mb-3">
-                  <p>Developers : 50/43</p>
-                  <vs-progress class="block mt-1" :percent="60" color="warning"></vs-progress>
-                </div>
-              </div>
-            </vx-card>
-          </div>
-          <div class="vx-col w-full md:w-1/2 mb-base">
-            <vx-card class="rounded-4">
-              <div class="">
-                <p class="text-warning  mb-6  text-3xl font-bold text-center font-sans ">
-                  AI Company
-                </p>
               </div>
                 
               <div
@@ -110,7 +53,7 @@
               >
                 <!-- LEFT COL -->
                 <div id="100k"
-                  class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between"
+                  class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between bg-cyan"
                   v-if="salesBarSession.analyticsData"
                 >
                   <div id="+5.2%" align="center">
@@ -151,6 +94,7 @@
                   class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col lg:mb-0 md:mb-base sm:mb-0 mb-base"
                 >
                   <!-- <change-time-duration-dropdown class="self-end" /> -->
+
                   <vue-apex-charts
                     type="bar"
                     height="150"
@@ -181,6 +125,90 @@
               </div>
             </vx-card>
           </div>
+      <div class="vx-col w-full md:w-1/2 mb-base">
+        <vx-card class="rounded-4">
+          <div class="">
+            <p class="text-warning  mb-6  text-3xl font-bold text-center font-sans ">
+              AI Company
+            </p>
+          </div>
+            
+          <div
+            class="vx-row flex-col-reverse md:flex-col-reverse sm:flex-row lg:flex-row"
+          >
+            <!-- LEFT COL -->
+            <div id="100k"
+              class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between"
+              v-if="salesBarSession.analyticsData"
+            >
+              <div id="+5.2%" align="center">
+                <h2 class="mb-1 font-bold">
+                  {{ salesBarSession.analyticsData.session | k_formatter }}
+                </h2>
+                <!-- <span class="font-medium">Avg Sessions</span> -->
+
+                <!-- Previous Data Comparison -->
+                <p class="mt-2 text-xl font-medium">
+                  <span
+                    :class="
+                      salesBarSession.analyticsData.comparison.result >= 0
+                        ? 'text-success'
+                        : 'text-danger'
+                    "
+                  >
+                    <span style="font-size: 12px;" v-if="salesBarSession.analyticsData.comparison.result > 0"
+                      >+</span
+                    >
+                    <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.result }}</span>
+                  </span>
+                  <span style="font-size: 12px;"> % vs </span>
+                  <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.str }}</span>
+                </p>
+              </div>
+              <vs-button
+                icon-pack="feather"
+                icon="icon-chevrons-right"
+                icon-after
+                class="shadow-md w-full lg:mt-0 mt-4 p-2"
+                >More</vs-button
+              >
+            </div>
+
+            <!-- RIGHT COL -->
+            <div
+              class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col lg:mb-0 md:mb-base sm:mb-0 mb-base"
+            >
+              <!-- <change-time-duration-dropdown class="self-end" /> -->
+              <vue-apex-charts
+                type="bar"
+                height="150"
+                :options="analyticsData.salesBar.chartOptions"
+                :series="salesBarSession.series"
+                v-if="salesBarSession.series"
+              />
+            </div>
+          </div>
+          <vs-divider class="my-6"></vs-divider>
+          <div class="vx-row">
+            <div class="vx-col w-1/2 mb-3">
+              <p>Goal: $100000</p>
+              <vs-progress class="block mt-1" :percent="50" color="primary"></vs-progress>
+            </div>
+            <div class="vx-col w-1/2 mb-3">
+              <p>Developers : 50/43</p>
+              <vs-progress class="block mt-1" :percent="60" color="warning"></vs-progress>
+            </div>
+            <!-- <div class="vx-col w-1/2 mb-3">
+              <p>Retention: 90%</p>
+              <vs-progress class="block mt-1" :percent="70" color="danger"></vs-progress>
+            </div>
+            <div class="vx-col w-1/2 mb-3">
+              <p>Duration: 1yr</p>
+              <vs-progress class="block mt-1" :percent="90" color="success"></vs-progress>
+            </div> -->
+          </div>
+        </vx-card>
+      </div>
         </div>
         <div id = "3982_Card" class="vx-row" >
           <div class="vx-col w-full md:w-1/2 mb-base">
@@ -266,91 +294,92 @@
             </div> -->
           </div>
         </vx-card>
+      </div>
+      <div class="vx-col w-full md:w-1/2 mb-base">
+        <vx-card class="rounded-4 ">
+          <div class="">
+            <p class="text-warning  mb-6  text-3xl font-bold text-center font-sans ">
+              8*2 Company
+            </p>
           </div>
-          <div class="vx-col w-full md:w-1/2 mb-base">
-            <vx-card class="rounded-4 ">
-              <div class="">
-                <p class="text-warning  mb-6  text-3xl font-bold text-center font-sans ">
-                  8*2 Company
+            
+          <div
+            class="vx-row flex-col-reverse md:flex-col-reverse sm:flex-row lg:flex-row"
+          >
+            <!-- LEFT COL -->
+            <div id="100k"
+              class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between"
+              v-if="salesBarSession.analyticsData"
+            >
+              <div id="+5.2%" align="center">
+                <h2 class="mb-1 font-bold">
+                  {{ salesBarSession.analyticsData.session | k_formatter }}
+                </h2>
+                <!-- <span class="font-medium">Avg Sessions</span> -->
+
+                <!-- Previous Data Comparison -->
+                <p class="mt-2 text-xl font-medium">
+                  <span
+                    :class="
+                      salesBarSession.analyticsData.comparison.result >= 0
+                        ? 'text-success'
+                        : 'text-danger'
+                    "
+                  >
+                    <span style="font-size: 12px;" v-if="salesBarSession.analyticsData.comparison.result > 0"
+                      >+</span
+                    >
+                    <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.result }}</span>
+                  </span>
+                  <span style="font-size: 12px;"> % vs </span>
+                  <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.str }}</span>
                 </p>
               </div>
-                
-              <div
-                class="vx-row flex-col-reverse md:flex-col-reverse sm:flex-row lg:flex-row"
+              <vs-button
+                icon-pack="feather"
+                icon="icon-chevrons-right"
+                icon-after
+                class="shadow-md w-full lg:mt-0 mt-4 p-2"
+                >More</vs-button
               >
-                <!-- LEFT COL -->
-                <div id="100k"
-                  class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between"
-                  v-if="salesBarSession.analyticsData"
-                >
-                  <div id="+5.2%" align="center">
-                    <h2 class="mb-1 font-bold">
-                      {{ salesBarSession.analyticsData.session | k_formatter }}
-                    </h2>
-                    <!-- <span class="font-medium">Avg Sessions</span> -->
+            </div>
 
-                    <!-- Previous Data Comparison -->
-                    <p class="mt-2 text-xl font-medium">
-                      <span
-                        :class="
-                          salesBarSession.analyticsData.comparison.result >= 0
-                            ? 'text-success'
-                            : 'text-danger'
-                        "
-                      >
-                        <span style="font-size: 12px;" v-if="salesBarSession.analyticsData.comparison.result > 0"
-                          >+</span
-                        >
-                        <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.result }}</span>
-                      </span>
-                      <span style="font-size: 12px;"> % vs </span>
-                      <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.str }}</span>
-                    </p>
-                  </div>
-                  <vs-button
-                    icon-pack="feather"
-                    icon="icon-chevrons-right"
-                    icon-after
-                    class="shadow-md w-full lg:mt-0 mt-4 p-2"
-                    >More</vs-button
-                  >
-                </div>
-
-                <!-- RIGHT COL -->
-                <div
-                  class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col lg:mb-0 md:mb-base sm:mb-0 mb-base"
-                >
-                  <!-- <change-time-duration-dropdown class="self-end" /> -->
-                  <vue-apex-charts
-                    type="bar"
-                    height="150"
-                    :options="analyticsData.salesBar.chartOptions"
-                    :series="salesBarSession.series"
-                    v-if="salesBarSession.series"
-                  />
-                </div>
-              </div>
-              <vs-divider class="my-6"></vs-divider>
-              <div class="vx-row">
-                <div class="vx-col w-1/2 mb-3">
-                  <p>Goal: $100000</p>
-                  <vs-progress class="block mt-1" :percent="50" color="primary"></vs-progress>
-                </div>
-                <div class="vx-col w-1/2 mb-3">
-                  <p>Developers : 50/43</p>
-                  <vs-progress class="block mt-1" :percent="60" color="warning"></vs-progress>
-                </div>
-                <!-- <div class="vx-col w-1/2 mb-3">
-                  <p>Retention: 90%</p>
-                  <vs-progress class="block mt-1" :percent="70" color="danger"></vs-progress>
-                </div>
-                <div class="vx-col w-1/2 mb-3">
-                  <p>Duration: 1yr</p>
-                  <vs-progress class="block mt-1" :percent="90" color="success"></vs-progress>
-                </div> -->
-              </div>
-            </vx-card>
+            <!-- RIGHT COL -->
+            <div
+              class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col lg:mb-0 md:mb-base sm:mb-0 mb-base"
+            >
+              <!-- <change-time-duration-dropdown class="self-end" /> -->
+              <vue-apex-charts
+                type="bar"
+                height="150"
+                :options="analyticsData.salesBar.chartOptions"
+                :series="salesBarSession.series"
+                v-if="salesBarSession.series"
+              />
+            </div>
           </div>
+          <vs-divider class="my-6"></vs-divider>
+          <div class="vx-row">
+            <div class="vx-col w-1/2 mb-3">
+              <p>Goal: $100000</p>
+              <vs-progress class="block mt-1" :percent="50" color="primary"></vs-progress>
+            </div>
+            <div class="vx-col w-1/2 mb-3">
+              <p>Developers : 50/43</p>
+              <vs-progress class="block mt-1" :percent="60" color="warning"></vs-progress>
+            </div>
+            <!-- <div class="vx-col w-1/2 mb-3">
+              <p>Retention: 90%</p>
+              <vs-progress class="block mt-1" :percent="70" color="danger"></vs-progress>
+            </div>
+            <div class="vx-col w-1/2 mb-3">
+              <p>Duration: 1yr</p>
+              <vs-progress class="block mt-1" :percent="90" color="success"></vs-progress>
+            </div> -->
+          </div>
+        </vx-card>
+      </div>
+      
         </div>
       </div>
     </div>
@@ -360,10 +389,10 @@
 <script>
 import VueApexCharts from 'vue-apexcharts'
 import StatisticsCardLine from '@/components/statistics-cards/StatisticsCardLine.vue'
-import analyticsData from './ui-elements/card/analyticsData.js'
+import analyticsData from '../ui-elements/card/analyticsData.js'
 import ChangeTimeDurationDropdown from '@/components/ChangeTimeDurationDropdown.vue'
 import VxTimeline from '@/components/timeline/VxTimeline'
-import apexChatData from './charts-and-maps/charts/apex-charts/apexChartData.js'
+import apexChatData from '../charts-and-maps/charts/apex-charts/apexChartData.js'
 
 export default {
   data () {
