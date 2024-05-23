@@ -1418,6 +1418,9 @@ export default {
         horizontalAlign: 'center',
         verticalAlign: 'middle',
         floating: false,
+        itemMargin: {
+          horizontal: 10
+        },
         fontSize: '20px',
         offsetX: -30,
         offsetY: 10
