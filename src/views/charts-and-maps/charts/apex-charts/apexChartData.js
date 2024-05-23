@@ -46,7 +46,7 @@ export default {
     series: [
       {
         name: 'Desktops',
-        data: [500000, 540000, 520000, 530000, 600000]
+        data: [550000, 510000, 550000, 530000, 600000]
       }
     ],
     chartOptions: {

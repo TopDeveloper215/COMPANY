@@ -7,14 +7,14 @@
           <h1 class="mb-1 " style="color: #2645ff; font-weight: 900; font-size: 45px; font-family: Sans-Serif; letter-spacing: 3px; transform: scale(0.8, 1.0);">
             7*9 Firm
           </h1>
-          <div  style="align-items: center;">
-            <div class="vx-col w-full md:w-1/2">
+          <div class="vx-row chartstyle" style=" align-items: center;">
+            <div class="vx-col subchartstyle xs:w-full lg:w-1/3 xl:w-1/3">
               <vue-apex-charts type="donut" height="350" :options="apexChatData.donutChart.chartOptions" :series="apexChatData.donutChart.series"></vue-apex-charts>
               <template slot="codeContainer">
                 {{ apexChatData.donutChartCode }}
               </template>
             </div>
-            <div class="vx-col w-full md:w-1/2">
+            <div class="vx-col  xs:w-full lg:w-2/3 xl:w-2/3">
               <vue-apex-charts type="line" height="350" :options="apexChatData.lineChartSimple.chartOptions" :series="apexChatData.lineChartSimple.series"></vue-apex-charts>
               <template slot="codeContainer">
                 {{ apexChatData.lineChartSimpleCode }}

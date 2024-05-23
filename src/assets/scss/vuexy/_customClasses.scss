@@ -525,3 +525,14 @@ ul.bordered-items {
     border-bottom: 1px solid $grey-light;
   }
 }
+
+@media only screen and (max-width: 660px) {
+    .chartstyle {
+      display: block;
+      
+    }
+    .subchartstyle{
+      width: max-content;
+      margin: auto;
+    }
+}
