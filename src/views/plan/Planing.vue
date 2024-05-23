@@ -1,5 +1,5 @@
 <template>
-  <div id="dashboard-analytics">
+  <div id="planing">
     <div class="vx-row"> 
       <!-- CARD 1: CONGRATS -->
       <div id="7*9_Card" class="vx-col w-full lg:w-full mb-base ">
@@ -20,6 +20,12 @@
                 {{ apexChatData.lineChartSimpleCode }}
               </template>
             </div>
+            <!-- <div>
+              <vue-apex-charts type="pie" height="350" :options="apexChatData.pieChart.chartOptions" :series="apexChatData.pieChart.series"></vue-apex-charts>
+              <template slot="codeContainer">
+                {{ apexChatData.pieChartCode }}
+              </template>
+            </div> -->
           </div> 
         </vx-card>
       </div>
@@ -62,13 +68,13 @@
                       <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.str }}</span>
                     </p>
                   </div>
-                  <vs-button
+                  <RouterLink to="/plancreate"><vs-button
                     icon-pack="feather"
                     icon="icon-chevrons-right"
                     icon-after
                     class="shadow-md w-full lg:mt-0 mt-4 p-2"
                     >More</vs-button
-                  >
+                  ></RouterLink>
                 </div>
 
                 <!-- RIGHT COL -->
@@ -137,13 +143,13 @@
                       <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.str }}</span>
                     </p>
                   </div>
-                  <vs-button
+                  <RouterLink to="/plancreate"><vs-button
                     icon-pack="feather"
                     icon="icon-chevrons-right"
                     icon-after
                     class="shadow-md w-full lg:mt-0 mt-4 p-2"
                     >More</vs-button
-                  >
+                  ></RouterLink>
                 </div>
 
                 <!-- RIGHT COL -->
@@ -223,13 +229,13 @@
                   <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.str }}</span>
                 </p>
               </div>
-              <vs-button
-                icon-pack="feather"
-                icon="icon-chevrons-right"
-                icon-after
-                class="shadow-md w-full lg:mt-0 mt-4 p-2"
-                >More</vs-button
-              >
+              <RouterLink to="/plancreate"><vs-button
+                    icon-pack="feather"
+                    icon="icon-chevrons-right"
+                    icon-after
+                    class="shadow-md w-full lg:mt-0 mt-4 p-2"
+                    >More</vs-button
+              ></RouterLink>
             </div>
 
             <!-- RIGHT COL -->
@@ -307,13 +313,13 @@
                       <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.str }}</span>
                     </p>
                   </div>
-                  <vs-button
+                  <RouterLink to="/plancreate"><vs-button
                     icon-pack="feather"
                     icon="icon-chevrons-right"
                     icon-after
                     class="shadow-md w-full lg:mt-0 mt-4 p-2"
                     >More</vs-button
-                  >
+                  ></RouterLink>
                 </div>
 
                 <!-- RIGHT COL -->
@@ -364,6 +370,8 @@ import analyticsData from '../ui-elements/card/analyticsData.js'
 import ChangeTimeDurationDropdown from '@/components/ChangeTimeDurationDropdown.vue'
 import VxTimeline from '@/components/timeline/VxTimeline'
 import apexChatData from '../charts-and-maps/charts/apex-charts/apexChartData.js'
+import { RouterLink, RouterView } from 'vue-router'
+
 
 export default {
   data () {
