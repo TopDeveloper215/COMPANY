@@ -1378,7 +1378,7 @@ export default {
   }
 </script>`,
   donutChart: {
-    series: [200000, 100000, 200000, 100000],
+    series: [200000, 200000, 100000, 100000],
     chartOptions: {
       plotOptions: {
         pie: {
@@ -1397,7 +1397,7 @@ export default {
           }
         }
       },
-      labels: ['AI', '3*9', '5*4', '8*2'],
+      labels: ['5*4', 'AI', '3*9', '8*2'],
       colors: themeColors,
       responsive: [
         {
