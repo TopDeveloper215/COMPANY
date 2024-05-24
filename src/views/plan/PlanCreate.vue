@@ -4,8 +4,6 @@
         <div class="vx-col w-full lg:w-full mb-base ">
           fdsfsdfsfsfsf
         </div>
-        <!-- CARD 1: CONGRATS -->
-        
       </div>
     </div>
   </template>

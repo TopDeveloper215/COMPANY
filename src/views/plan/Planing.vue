@@ -370,7 +370,6 @@ import analyticsData from '../ui-elements/card/analyticsData.js'
 import ChangeTimeDurationDropdown from '@/components/ChangeTimeDurationDropdown.vue'
 import VxTimeline from '@/components/timeline/VxTimeline'
 import apexChatData from '../charts-and-maps/charts/apex-charts/apexChartData.js'
-import { RouterLink, RouterView } from 'vue-router'
 
 
 export default {
