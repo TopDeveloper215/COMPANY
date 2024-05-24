@@ -1,13 +1,12 @@
 <template>
   <div id="planing">
     <div class="vx-row"> 
-      <!-- CARD 1: CONGRATS -->
-      <div id="7*9_Card" class="vx-col w-full lg:w-full mb-base ">
-        <vx-card slot="no-body" class="text-center  ">  
-          <h1 class="mb-1 " style="color: #2645ff; font-weight: 900; font-size: 45px; font-family: Sans-Serif; letter-spacing: 3px; transform: scale(0.8, 1.0);">
+      <div id="Card_main" class="vx-col w-full lg:w-full mb-base ">
+        <vx-card slot="no-body" class="text-center">  
+          <h1 class="mb-1 firm">
             7*9 Firm
           </h1>
-          <div class="vx-row chartstyle" style=" align-items: center;">
+          <div class="vx-row chartstyle">
             <div class="vx-col subchartstyle xs:w-full lg:w-1/3 xl:w-1/3">
               <vue-apex-charts type="donut" height="350" :options="apexChatData.donutChart.chartOptions" :series="apexChatData.donutChart.series"></vue-apex-charts>
               <template slot="codeContainer">
@@ -20,20 +19,14 @@
                 {{ apexChatData.lineChartSimpleCode }}
               </template>
             </div>
-            <!-- <div>
-              <vue-apex-charts type="pie" height="350" :options="apexChatData.pieChart.chartOptions" :series="apexChatData.pieChart.series"></vue-apex-charts>
-              <template slot="codeContainer">
-                {{ apexChatData.pieChartCode }}
-              </template>
-            </div> -->
           </div> 
         </vx-card>
       </div>
       <div id="other_cards" class="vx-col w-full lg:w-full mb-base">
-        <div id = "54AI_Card" class="vx-row">
+        <div id = "Card_first" class="vx-row">
           <div class="vx-col w-full md:w-1/2 mb-base rounded-10 ">
             <vx-card class="rounded-10" >
-              <div class="">
+              <div>
                 <p class="text-warning  mb-6  text-3xl font-bold text-center font-sans ">
                    5*4 company
                 </p>
@@ -42,15 +35,14 @@
                 class="vx-row flex-col-reverse md:flex-col-reverse sm:flex-row lg:flex-row"
               >
                 <!-- LEFT COL -->
-                <div id="100k"
-                  class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between bg-cyan"
+                <div
+                  class="plan_title vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between bg-cyan"
                   v-if="salesBarSession.analyticsData"
                 >
-                  <div id="+5.2%" align="center">
+                  <div align="center">
                     <h2 class="mb-1 font-bold">
                       {{ salesBarSession.analyticsData.session | k_formatter }}
                     </h2>
-                    <!-- Previous Data Comparison -->
                     <p class="mt-2 text-xl font-medium">
                       <span
                         :class="
@@ -59,13 +51,13 @@
                             : 'text-danger'
                         "
                       >
-                        <span style="font-size: 12px;" v-if="salesBarSession.analyticsData.comparison.result > 0"
+                        <span v-if="salesBarSession.analyticsData.comparison.result > 0"
                           >+</span
                         >
-                        <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.result }}</span>
+                        <span>{{ salesBarSession.analyticsData.comparison.result }}</span>
                       </span>
-                      <span style="font-size: 12px;"> % vs </span>
-                      <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.str }}</span>
+                      <span> % vs </span>
+                      <span>{{ salesBarSession.analyticsData.comparison.str }}</span>
                     </p>
                   </div>
                   <RouterLink to="/plancreate"><vs-button
@@ -115,17 +107,14 @@
                 class="vx-row flex-col-reverse md:flex-col-reverse sm:flex-row lg:flex-row"
               >
                 <!-- LEFT COL -->
-                <div id="100k"
-                  class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between"
+                <div
+                  class="plan_title vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between"
                   v-if="salesBarSession.analyticsData"
                 >
-                  <div id="+5.2%" align="center">
+                  <div align="center">
                     <h2 class="mb-1 font-bold">
                       {{ salesBarSession.analyticsData.session | k_formatter }}
                     </h2>
-                    <!-- <span class="font-medium">Avg Sessions</span> -->
-
-                    <!-- Previous Data Comparison -->
                     <p class="mt-2 text-xl font-medium">
                       <span
                         :class="
@@ -134,13 +123,13 @@
                             : 'text-danger'
                         "
                       >
-                        <span style="font-size: 12px;" v-if="salesBarSession.analyticsData.comparison.result > 0"
+                        <span v-if="salesBarSession.analyticsData.comparison.result > 0"
                           >+</span
                         >
-                        <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.result }}</span>
+                        <span>{{ salesBarSession.analyticsData.comparison.result }}</span>
                       </span>
-                      <span style="font-size: 12px;"> % vs </span>
-                      <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.str }}</span>
+                      <span> % vs </span>
+                      <span>{{ salesBarSession.analyticsData.comparison.str }}</span>
                     </p>
                   </div>
                   <RouterLink to="/plancreate"><vs-button
@@ -156,7 +145,6 @@
                 <div
                   class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col lg:mb-0 md:mb-base sm:mb-0 mb-base"
                 >
-                  <!-- <change-time-duration-dropdown class="self-end" /> -->
                   <vue-apex-charts
                     type="bar"
                     height="150"
@@ -176,19 +164,11 @@
                   <p>Developers : 50/43</p>
                   <vs-progress class="block mt-1" :percent="60" color="warning"></vs-progress>
                 </div>
-                <!-- <div class="vx-col w-1/2 mb-3">
-                  <p>Retention: 90%</p>
-                  <vs-progress class="block mt-1" :percent="70" color="danger"></vs-progress>
-                </div>
-                <div class="vx-col w-1/2 mb-3">
-                  <p>Duration: 1yr</p>
-                  <vs-progress class="block mt-1" :percent="90" color="success"></vs-progress>
-                </div> -->
               </div>
             </vx-card>
           </div>
         </div>
-        <div id = "3982_Card" class="vx-row" >
+        <div id = "Card_two" class="vx-row" >
           <div class="vx-col w-full md:w-1/2 mb-base">
         <vx-card class="rounded-4">
           <div class="">
@@ -201,17 +181,14 @@
             class="vx-row flex-col-reverse md:flex-col-reverse sm:flex-row lg:flex-row"
           >
             <!-- LEFT COL -->
-            <div id="100k"
-              class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between"
+            <div
+              class="plan_title vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between"
               v-if="salesBarSession.analyticsData"
             >
-              <div id="+5.2%" align="center">
+              <div align="center">
                 <h2 class="mb-1 font-bold">
                   {{ salesBarSession.analyticsData.session | k_formatter }}
                 </h2>
-                <!-- <span class="font-medium">Avg Sessions</span> -->
-
-                <!-- Previous Data Comparison -->
                 <p class="mt-2 text-xl font-medium">
                   <span
                     :class="
@@ -220,13 +197,13 @@
                         : 'text-danger'
                     "
                   >
-                    <span style="font-size: 12px;" v-if="salesBarSession.analyticsData.comparison.result > 0"
+                    <span v-if="salesBarSession.analyticsData.comparison.result > 0"
                       >+</span
                     >
-                    <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.result }}</span>
+                    <span>{{ salesBarSession.analyticsData.comparison.result }}</span>
                   </span>
-                  <span style="font-size: 12px;"> % vs </span>
-                  <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.str }}</span>
+                  <span> % vs </span>
+                  <span>{{ salesBarSession.analyticsData.comparison.str }}</span>
                 </p>
               </div>
               <RouterLink to="/plancreate"><vs-button
@@ -242,7 +219,6 @@
             <div
               class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col lg:mb-0 md:mb-base sm:mb-0 mb-base"
             >
-              <!-- <change-time-duration-dropdown class="self-end" /> -->
               <vue-apex-charts
                 type="bar"
                 height="150"
@@ -262,14 +238,6 @@
               <p>Developers : 50/43</p>
               <vs-progress class="block mt-1" :percent="60" color="warning"></vs-progress>
             </div>
-            <!-- <div class="vx-col w-1/2 mb-3">
-              <p>Retention: 90%</p>
-              <vs-progress class="block mt-1" :percent="70" color="danger"></vs-progress>
-            </div>
-            <div class="vx-col w-1/2 mb-3">
-              <p>Duration: 1yr</p>
-              <vs-progress class="block mt-1" :percent="90" color="success"></vs-progress>
-            </div> -->
           </div>
         </vx-card>
           </div>
@@ -285,17 +253,14 @@
                 class="vx-row flex-col-reverse md:flex-col-reverse sm:flex-row lg:flex-row"
               >
                 <!-- LEFT COL -->
-                <div id="100k"
-                  class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between"
+                <div
+                  class="plan_title vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between"
                   v-if="salesBarSession.analyticsData"
                 >
-                  <div id="+5.2%" align="center">
+                  <div align="center">
                     <h2 class="mb-1 font-bold">
                       {{ salesBarSession.analyticsData.session | k_formatter }}
                     </h2>
-                    <!-- <span class="font-medium">Avg Sessions</span> -->
-
-                    <!-- Previous Data Comparison -->
                     <p class="mt-2 text-xl font-medium">
                       <span
                         :class="
@@ -304,13 +269,13 @@
                             : 'text-danger'
                         "
                       >
-                        <span style="font-size: 12px;" v-if="salesBarSession.analyticsData.comparison.result > 0"
+                        <span v-if="salesBarSession.analyticsData.comparison.result > 0"
                           >+</span
                         >
-                        <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.result }}</span>
+                        <span>{{ salesBarSession.analyticsData.comparison.result }}</span>
                       </span>
-                      <span style="font-size: 12px;"> % vs </span>
-                      <span style="font-size: 12px;">{{ salesBarSession.analyticsData.comparison.str }}</span>
+                      <span> % vs </span>
+                      <span>{{ salesBarSession.analyticsData.comparison.str }}</span>
                     </p>
                   </div>
                   <RouterLink to="/plancreate"><vs-button
@@ -326,7 +291,6 @@
                 <div
                   class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col lg:mb-0 md:mb-base sm:mb-0 mb-base"
                 >
-                  <!-- <change-time-duration-dropdown class="self-end" /> -->
                   <vue-apex-charts
                     type="bar"
                     height="150"
@@ -346,14 +310,6 @@
                   <p>Developers : 50/43</p>
                   <vs-progress class="block mt-1" :percent="60" color="warning"></vs-progress>
                 </div>
-                <!-- <div class="vx-col w-1/2 mb-3">
-                  <p>Retention: 90%</p>
-                  <vs-progress class="block mt-1" :percent="70" color="danger"></vs-progress>
-                </div>
-                <div class="vx-col w-1/2 mb-3">
-                  <p>Duration: 1yr</p>
-                  <vs-progress class="block mt-1" :percent="90" color="success"></vs-progress>
-                </div> -->
               </div>
             </vx-card>
           </div>
@@ -543,7 +499,7 @@ export default {
 
 <style lang="scss">
 /*! rtl:begin:ignore */
-#dashboard-analytics {
+#planing {
   .greet-user {
     position: relative;
 
@@ -567,4 +523,30 @@ export default {
   }
 }
 /*! rtl:end:ignore */
+</style>
+<style scoped>
+  .firm{
+    color: #2645ff;
+    font-weight: 900;
+    font-size: 45px;
+    font-family: Sans-Serif;
+    letter-spacing: 3px;
+    transform: scale(0.8, 1.0);
+  }
+  @media only screen and (max-width: 660px) {
+    .chartstyle {
+      display: block;
+      align-items: center;
+      
+    }
+    .subchartstyle{
+      width: max-content;
+      margin: auto;
+    }
+  }
+  .plan_title {
+    span{
+      font-size: 12px;
+    }
+  }
 </style>
