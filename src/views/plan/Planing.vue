@@ -60,7 +60,7 @@
                       <span>{{ salesBarSession.analyticsData.comparison.str }}</span>
                     </p>
                   </div>
-                  <RouterLink to="/plancreate"><vs-button
+                  <RouterLink to="/create-plan"><vs-button
                     icon-pack="feather"
                     icon="icon-chevrons-right"
                     icon-after
@@ -132,7 +132,7 @@
                       <span>{{ salesBarSession.analyticsData.comparison.str }}</span>
                     </p>
                   </div>
-                  <RouterLink to="/plancreate"><vs-button
+                  <RouterLink to="/create-plan"><vs-button
                     icon-pack="feather"
                     icon="icon-chevrons-right"
                     icon-after
@@ -206,7 +206,7 @@
                   <span>{{ salesBarSession.analyticsData.comparison.str }}</span>
                 </p>
               </div>
-              <RouterLink to="/plancreate"><vs-button
+              <RouterLink to="/create-plan"><vs-button
                     icon-pack="feather"
                     icon="icon-chevrons-right"
                     icon-after
@@ -278,7 +278,7 @@
                       <span>{{ salesBarSession.analyticsData.comparison.str }}</span>
                     </p>
                   </div>
-                  <RouterLink to="/plancreate"><vs-button
+                  <RouterLink to="/create-plan"><vs-button
                     icon-pack="feather"
                     icon="icon-chevrons-right"
                     icon-after

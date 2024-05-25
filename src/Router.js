@@ -147,9 +147,9 @@ const router = new Router({
           }
         },
         {
-          path: '/plancreate',
+          path: '/create-plan',
           name: 'createplan',
-          component: () => import('./views/plan/PlanCreate.vue'),
+          component: () => import('./views/plan/CreatePlan.vue'),
           meta: {
             rule: 'admin'
           }

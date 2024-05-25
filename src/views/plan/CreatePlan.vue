@@ -2,33 +2,33 @@
     <div id="plan-create">
       <div class="vx-row"> 
         <div class="vx-col w-full md:w-1/4">
-                <vs-list>
-                  <vs-list-header title="Team 1" color="primary"></vs-list-header>
-                    <draggable :list="list1" group="people" class="p-2 cursor-move">
-                      <vs-list-item 
-                        v-for="(listItem, index) in list1" 
-                        :key="index" 
-                        :title="listItem.name" 
-                        :subtitle="listItem.email">
-                        <vs-avatar slot="avatar" :text="listItem.name" />
-                      </vs-list-item>
-                    </draggable>
-                </vs-list>
-            </div>
-            <div class="vx-col w-full md:w-1/4">
-                <vs-list>
-                    <vs-list-header title="Team 2" color="primary"></vs-list-header>
-                    <draggable :list="list2" group="people" class="p-2 cursor-move">
-                      <vs-list-item 
-                        v-for="(listItem, index) in list2" 
-                        :key="index" 
-                        :title="listItem.name" 
-                        :subtitle="listItem.email">
-                        <vs-avatar slot="avatar" :text="listItem.name" />
-                      </vs-list-item>
-                    </draggable>
-                </vs-list>
-            </div>
+          <vs-list>
+            <vs-list-header title="Team 1" color="primary"></vs-list-header>
+              <draggable :list="list1" group="people" class="p-2 cursor-move">
+                <vs-list-item 
+                  v-for="(listItem, index) in list1" 
+                  :key="index" 
+                  :title="listItem.name" 
+                  :subtitle="listItem.email">
+                  <vs-avatar slot="avatar" :text="listItem.name" />
+                </vs-list-item>
+              </draggable>
+          </vs-list>
+        </div>
+        <div class="vx-col w-full md:w-1/4">
+          <vs-list>
+              <vs-list-header title="Team 2" color="primary"></vs-list-header>
+              <draggable :list="list2" group="people" class="p-2 cursor-move">
+                <vs-list-item 
+                  v-for="(listItem, index) in list2" 
+                  :key="index" 
+                  :title="listItem.name" 
+                  :subtitle="listItem.email">
+                  <vs-avatar slot="avatar" :text="listItem.name" />
+                </vs-list-item>
+              </draggable>
+          </vs-list>
+        </div>
       </div>
     </div>
   </template>
